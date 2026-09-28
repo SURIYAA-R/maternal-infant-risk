@@ -36,19 +36,28 @@ The synthetic data is generated with clinically plausible distributions drawn
 from published WHO and NFHS-5 statistics. **All synthetic outputs are clearly
 labelled as such.**
 
+### Synthetic Data Limitation
+
+The primary dataset is **synthetically generated** for academic purposes. While
+distributions are informed by published statistics, the data does NOT represent
+real patients. Model performance metrics should NOT be extrapolated to real
+clinical populations without validation on genuine patient data.
+
 ## Architecture
 
 ```
-┌──────────────┐    ┌─────────────┐    ┌──────────────┐    ┌────────────┐
-│  Raw Data    │───▶│ Preprocess  │───▶│  Model Train │───▶│ Evaluation │
-│  (CSV)       │    │  Pipeline   │    │  & Tune      │    │  & Select  │
-└──────────────┘    └─────────────┘    └──────────────┘    └─────┬──────┘
-                                                                 │
-                                                                 ▼
-                                                          ┌────────────┐
-                                                          │ Streamlit  │
-                                                          │ Web App    │
-                                                          └────────────┘
+┌──────────────────┐    ┌──────────────┐    ┌──────────────┐    ┌────────────┐
+│  Raw Data (CSV)  │───▶│ Preprocessing│───▶│ Model Train  │───▶│ Evaluation │
+│  Synthetic +     │    │ Pipeline     │    │ & Tune       │    │ & Select   │
+│  UCI Dataset     │    │ (IQR, SMOTE) │    │ (GridSearchCV│    │ (Recall)   │
+└──────────────────┘    └──────────────┘    └──────────────┘    └──────┬─────┘
+                                                                       │
+                                                                       ▼
+                                                               ┌────────────┐
+                                                               │ Streamlit  │
+                                                               │ Web App    │
+                                                               │ (5 tabs)   │
+                                                               └────────────┘
 ```
 
 ## Repository Structure
@@ -62,8 +71,15 @@ maternal-infant-risk/
 │   └── processed/        # Cleaned, encoded, split datasets
 ├── models/               # Serialised model + pipeline (.joblib)
 ├── notebooks/            # Jupyter notebooks (01–05)
+│   ├── 01_data_collection.ipynb
+│   ├── 02_preprocessing.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_model_building.ipynb
+│   └── 05_evaluation.ipynb
 ├── reports/
-│   └── figures/          # Saved EDA & evaluation plots
+│   ├── figures/          # Saved EDA & evaluation plots
+│   ├── project_report.md
+│   └── viva_question_bank.md
 ├── src/                  # Reusable Python modules
 │   ├── __init__.py
 │   ├── data_generation.py
@@ -73,7 +89,7 @@ maternal-infant-risk/
 ├── Dockerfile            # Alternative deployment
 ├── requirements.txt      # Pinned dependencies
 ├── .gitignore
-└── README.md             # ← you are here
+└── README.md
 ```
 
 ## Quick Start
@@ -91,17 +107,15 @@ venv\Scripts\activate        # Windows
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Generate synthetic data & run notebooks
+# 4. Generate synthetic data
 python src/data_generation.py
+
+# 5. Run notebooks in order (01 → 05)
 jupyter notebook
 
-# 5. Launch the Streamlit app locally
+# 6. Launch the Streamlit app locally
 streamlit run app/app.py
 ```
-
-## Live Demo
-
-> 🔗 **[Streamlit Cloud URL]** — *(will be added after deployment in Phase 8)*
 
 ## Techniques Used
 
@@ -115,15 +129,55 @@ streamlit run app/app.py
 
 ## Results
 
-> *(Metrics table will be inserted after Phase 6.)*
+> *Metrics are from SYNTHETIC data — not real clinical performance.*
+
+The metrics comparison table (Accuracy, Precision, Recall, F1, ROC-AUC) for all
+7 models is generated in Notebook 05 and displayed in the Streamlit app.
+
+The model with the **highest recall on the HIGH-RISK class** is selected as the
+deployment model, because a false negative (missing a high-risk pregnancy) is
+far more dangerous than a false positive.
+
+## Deployment
+
+### Streamlit Community Cloud (Recommended)
+
+**Step-by-step:**
+
+1. Push this repository to a **public GitHub repo**.
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
+3. Click **"New app"**.
+4. Select your repository, branch (`main` or `master`), and set the main file
+   path to `app/app.py`.
+5. Click **"Deploy!"** — Streamlit will install dependencies from
+   `requirements.txt` and launch the app.
+6. Your public URL will be:
+   `https://<your-username>-maternal-infant-risk-app-app-<hash>.streamlit.app`
+
+### Docker (Alternative)
+
+```bash
+# Build the image
+docker build -t maternal-risk-app .
+
+# Run the container
+docker run -p 8501:8501 maternal-risk-app
+
+# Open in browser: http://localhost:8501
+```
+
+## Live Demo
+
+> 🔗 **[Streamlit Cloud URL]** — *(add after deployment)*
 
 ## Screenshots
 
-> *(Screenshots of the Streamlit app will be inserted after Phase 7.)*
+> *(Insert screenshots of the Streamlit app after running it)*
 
 ## References
 
-> *(IEEE-format references will be added in the final report — Phase 9.)*
+See [`reports/project_report.md`](reports/project_report.md) for the full
+IEEE-format reference list.
 
 ## License
 
