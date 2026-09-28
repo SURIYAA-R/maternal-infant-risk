@@ -1,0 +1,48 @@
+# =============================================================================
+# .gitignore — Maternal & Infant Risk Prediction Project
+# =============================================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ---------- Virtual environments ----------
+venv/
+env/
+.venv/
+.env/
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ---------- IDE ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- Data (large files — keep structure, ignore big CSVs) ----------
+# Uncomment the next line if datasets are too large for GitHub
+# data/raw/*.csv
+# data/processed/*.csv
+
+# ---------- Models (serialised — can be large) ----------
+# models/*.joblib
+# models/*.pkl
+
+# ---------- Logs & misc ----------
+*.log
+*.tmp
+.env
