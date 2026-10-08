@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const savedTheme = localStorage.getItem('dmt_nb_theme') || 'cyber';
+  const savedTheme = localStorage.getItem('dmt_nb_theme') || 'dark';
   setThemeMode(savedTheme);
 
 
@@ -658,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreANC = Math.max(0.1, Math.min(1.0, p.anc / 5.0));
 
     const patientScores = [scoreSys, scoreDia, scoreHb, scoreGA, scoreBW, scoreANC];
-    const isDark = htmlRoot.getAttribute('data-theme') === 'dark';
+    const isDark = htmlRoot.getAttribute('data-theme') !== 'cyber';
 
     const axisLineColor = isDark ? '#ffffff' : '#000000';
     const gridLineColor = isDark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.2)';
@@ -883,7 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const h = canvas.height;
     ctx.clearRect(0, 0, w, h);
 
-    const isDark = htmlRoot.getAttribute('data-theme') === 'dark';
+    const isDark = htmlRoot.getAttribute('data-theme') !== 'cyber';
     const axisColor = isDark ? '#ffffff' : '#000000';
     const textColor = isDark ? '#ffffff' : '#000000';
     const gridColor = isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.12)';
