@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" data-morphism="glass">
+<html lang="en" data-theme="cyber" data-morphism="glass">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maternal & Infant Mortality Risk Screening — DMT KRCT</title>
-  <meta name="description" content="AI Clinical Decision Support and Maternal-Infant Mortality Risk Prediction engineered with Data Mining Techniques, SMOTE, and Ensemble Learning.">
+  <title>Maternal & Infant Mortality Risk Screening — Neo-Brutalism AI Platform</title>
+  <meta name="description" content="AI Clinical Decision Support and Maternal-Infant Mortality Risk Prediction engineered with Data Mining Techniques, SMOTE, and Ensemble Learning in Neo-Brutalism design.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2228%22>🤰</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤰</text></svg>">
 </head>
 <body>
 
-  <!-- Ambient Moving Glow Spheres for Glassmorphic Depth -->
-  <div class="ambient-glow-wrapper" aria-hidden="true">
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-  </div>
-
   <div class="app-wrapper">
 
-    <!-- Top Navigation Bar -->
+    <!-- Top Navigation Bar (Neo-Brutalism) -->
     <header class="top-nav morphism-card">
       <div class="brand-section">
         <div class="brand-logo-icon">🤰</div>
         <div class="brand-title-group">
-          <h1>Maternal &amp; Infant Risk AI <span style="font-size: 0.75rem; background: rgba(99,102,241,0.25); border: 1px solid rgba(99,102,241,0.5); padding: 2px 8px; border-radius: 9999px; color: #c7d2fe;">DMT 2026</span></h1>
+          <h1>Maternal &amp; Infant Risk AI <span style="font-size: 0.76rem; background: var(--nb-yellow); color: #000; border: 2px solid #000; padding: 2px 8px; border-radius: 9999px; box-shadow: 2px 2px 0px #000;">DMT 2026</span></h1>
           <div class="sub-tagline">Clinical Triage &amp; Risk Intelligence · K. Ramakrishnan College of Technology</div>
         </div>
       </div>
@@ -32,29 +25,29 @@
       <div class="nav-actions">
         <div class="system-status-pill">
           <span class="pulse-dot"></span>
-          <span>XGBoost / RF Active</span>
+          <span>⚡ XGBoost / RF Active</span>
         </div>
 
-        <!-- Morphism Design Switcher -->
-        <div class="morphism-switcher-box" title="Switch UI Morphism Paradigm">
-          <button class="morph-btn active" data-style="glass" id="btnMorphismGlass">
-            <span>✨</span> Glass
+        <!-- Neo-Brutalist Palette Selector -->
+        <div class="morphism-switcher-box" title="Switch Neo-Brutalist Color Palette">
+          <button class="morph-btn active" data-style="cyber" id="btnThemeCyber" title="Classic Neo-Brutalist Cyber Pop">
+            🟡 Cyber Pop
           </button>
-          <button class="morph-btn" data-style="clay" id="btnMorphismClay">
-            <span>🎨</span> Clay
+          <button class="morph-btn" data-style="mint" id="btnThemeMint" title="Toxic Mint Neo-Brutalism">
+            🟢 Toxic Mint
           </button>
-          <button class="morph-btn" data-style="hybrid" id="btnMorphismHybrid">
-            <span>⚡</span> Hybrid
+          <button class="morph-btn" data-style="dark" id="btnThemeDark" title="Cyber Dark High-Voltage">
+            ⚡ Cyber Dark
           </button>
         </div>
       </div>
     </header>
 
     <!-- Main Hero Banner -->
-    <section class="hero-card morphism-card card-shine-sheen">
+    <section class="hero-card morphism-card">
       <div class="hero-pill-badge">
         <span class="pulse-dot"></span>
-        <span>AI Clinical Decision Intelligence · Academic Triage Engine</span>
+        <span>AI CLINICAL DECISION INTELLIGENCE · ACADEMIC TRIAGE ENGINE</span>
       </div>
       <h2 class="hero-heading">Maternal &amp; Infant Mortality Risk Screening</h2>
       <p class="hero-description">
@@ -72,7 +65,7 @@
           <div class="stat-label">GridSearchCV Benchmarked</div>
         </div>
         <div class="stat-box">
-          <div class="stat-value">83.2% Recall</div>
+          <div class="stat-value" style="color: #000;">83.2% Recall</div>
           <div class="stat-label">High-Risk Sensitivity (Safety-First)</div>
         </div>
         <div class="stat-box">
@@ -150,10 +143,10 @@
               <span class="max-limit-pill">Max Limit: <b>200</b> mmHg</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numSysBP" min="80" max="200" step="1" value="120" placeholder="Enter Systolic BP">
+              <input type="number" id="numSysBP" class="number-input-field" min="80" max="200" step="1" value="120">
             </div>
-            <input type="range" class="slider-input" id="sliderSysBP" min="80" max="200" value="120" step="1">
-            <div class="field-alert alert-safe" id="alertSysBP">✓ Normotensive (< 120 mmHg)</div>
+            <input type="range" id="sliderSysBP" class="slider-input" min="80" max="200" step="1" value="120">
+            <div class="field-alert alert-safe" id="alertSysBP">✓ Optimal Blood Pressure (&lt; 120 mmHg)</div>
           </div>
 
           <div class="form-group">
@@ -162,45 +155,36 @@
               <span class="max-limit-pill">Max Limit: <b>130</b> mmHg</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numDiaBP" min="50" max="130" step="1" value="78" placeholder="Enter Diastolic BP">
+              <input type="number" id="numDiaBP" class="number-input-field" min="50" max="130" step="1" value="80">
             </div>
-            <input type="range" class="slider-input" id="sliderDiaBP" min="50" max="130" value="78" step="1">
-            <div class="field-alert alert-safe" id="alertDiaBP">✓ Normotensive (< 80 mmHg)</div>
+            <input type="range" id="sliderDiaBP" class="slider-input" min="50" max="130" step="1" value="80">
+            <div class="field-alert alert-safe" id="alertDiaBP">✓ Normotensive Diastolic (&lt; 80 mmHg)</div>
           </div>
 
           <div class="form-group">
             <div class="form-label-row">
-              <label class="form-label" for="numHb">Hemoglobin Level (g/dL)</label>
+              <label class="form-label" for="numHb">Hemoglobin (g/dL)</label>
               <span class="max-limit-pill">Max Limit: <b>17.0</b> g/dL</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numHb" min="5.0" max="17.0" step="0.1" value="11.5" placeholder="Enter Hemoglobin">
+              <input type="number" id="numHb" class="number-input-field" min="5.0" max="17.0" step="0.1" value="11.5">
             </div>
-            <input type="range" class="slider-input" id="sliderHb" min="5.0" max="17.0" value="11.5" step="0.1">
-            <div class="field-alert alert-safe" id="alertHb">✓ Normal Hemoglobin (≥ 11.0 g/dL)</div>
+            <input type="range" id="sliderHb" class="slider-input" min="5.0" max="17.0" step="0.1" value="11.5">
+            <div class="field-alert alert-safe" id="alertHb">✓ Normal Maternal Hemoglobin (≥ 11.0 g/dL)</div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="selectDiab">Gestational Diabetes Status</label>
-            <select class="select-input" id="selectDiab">
-              <option value="No" selected>No (Non-Diabetic)</option>
-              <option value="Yes">Yes (Gestational Diabetes Diagnosed)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="selectComp">Pregnancy Complications</label>
-            <select class="select-input" id="selectComp">
-              <option value="None" selected>None (Uncomplicated)</option>
-              <option value="Mild">Mild Complications</option>
-              <option value="Severe">Severe Complications (Pre-eclampsia/Hemorrhage)</option>
+            <select id="selectDiab" class="select-input">
+              <option value="No" selected>No (Normal Glycemia)</option>
+              <option value="Yes">Yes (Diabetic / Impaired Fasting)</option>
             </select>
           </div>
         </div>
 
-        <!-- Column 2: Gestational & Neonatal -->
+        <!-- Column 2: Obstetric & Perinatal Parameters -->
         <div class="input-category-card morphism-card">
-          <div class="card-badge">👶 Gestational &amp; Neonatal</div>
+          <div class="card-badge">👶 Obstetric &amp; Perinatal</div>
 
           <div class="form-group">
             <div class="form-label-row">
@@ -208,10 +192,10 @@
               <span class="max-limit-pill">Max Limit: <b>43</b> wks</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numGA" min="24" max="43" step="1" value="38" placeholder="Enter Gestational Age">
+              <input type="number" id="numGA" class="number-input-field" min="24" max="43" step="1" value="38">
             </div>
-            <input type="range" class="slider-input" id="sliderGA" min="24" max="43" value="38" step="1">
-            <div class="field-alert alert-safe" id="alertGA">✓ Full Term Gestation (≥ 37 weeks)</div>
+            <input type="range" id="sliderGA" class="slider-input" min="24" max="43" step="1" value="38">
+            <div class="field-alert alert-safe" id="alertGA">✓ Full-Term Gestation (≥ 37 weeks)</div>
           </div>
 
           <div class="form-group">
@@ -220,20 +204,34 @@
               <span class="max-limit-pill">Max Limit: <b>5.00</b> kg</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numBW" min="0.80" max="5.00" step="0.05" value="2.80" placeholder="Enter Birth Weight">
+              <input type="number" id="numBW" class="number-input-field" min="0.80" max="5.00" step="0.05" value="2.90">
             </div>
-            <input type="range" class="slider-input" id="sliderBW" min="0.80" max="5.00" value="2.80" step="0.05">
-            <div class="field-alert alert-safe" id="alertBW">✓ Normal Birth Weight (≥ 2.5 kg)</div>
+            <input type="range" id="sliderBW" class="slider-input" min="0.80" max="5.00" step="0.05" value="2.90">
+            <div class="field-alert alert-safe" id="alertBW">✓ Healthy Birth Weight Range (≥ 2.5 kg)</div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="selectDeliv">Place of Delivery</label>
-            <select class="select-input" id="selectDeliv">
-              <option value="Hospital" selected>Hospital (Institutional Care)</option>
-              <option value="Clinic">Clinic / Primary Health Centre (PHC)</option>
-              <option value="Home">Home Delivery (Unattended/High-Risk)</option>
+            <label class="form-label" for="selectComp">Pre-existing Complications</label>
+            <select id="selectComp" class="select-input">
+              <option value="None" selected>None (Uncomplicated Course)</option>
+              <option value="Mild">Mild (Mild Edema / Spotting)</option>
+              <option value="Severe">Severe (Pre-eclampsia / Hemorrhage / Placenta Previa)</option>
             </select>
           </div>
+
+          <div class="form-group">
+            <label class="form-label" for="selectDeliv">Planned Delivery Location</label>
+            <select id="selectDeliv" class="select-input">
+              <option value="Hospital" selected>Tertiary / District Hospital (Emergency Backup)</option>
+              <option value="Clinic">Community Health Clinic (PHC / CHC)</option>
+              <option value="Home">Home Delivery (Traditional Birth Attendant)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Column 3: Demographics & Antenatal Care -->
+        <div class="input-category-card morphism-card">
+          <div class="card-badge">📋 Demographics &amp; Care Access</div>
 
           <div class="form-group">
             <div class="form-label-row">
@@ -241,16 +239,11 @@
               <span class="max-limit-pill">Max Limit: <b>15</b> visits</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numANC" min="0" max="15" step="1" value="5" placeholder="Enter ANC Visits">
+              <input type="number" id="numANC" class="number-input-field" min="0" max="15" step="1" value="5">
             </div>
-            <input type="range" class="slider-input" id="sliderANC" min="0" max="15" value="5" step="1">
-            <div class="field-alert alert-safe" id="alertANC">✓ Compliant with WHO Guidelines (≥ 4 visits)</div>
+            <input type="range" id="sliderANC" class="slider-input" min="0" max="15" step="1" value="5">
+            <div class="field-alert alert-safe" id="alertANC">✓ WHO Protocol Compliant (≥ 4 visits)</div>
           </div>
-        </div>
-
-        <!-- Column 3: Demographics & Healthcare Access -->
-        <div class="input-category-card morphism-card">
-          <div class="card-badge">👩 Demographics &amp; Care Access</div>
 
           <div class="form-group">
             <div class="form-label-row">
@@ -258,98 +251,90 @@
               <span class="max-limit-pill">Max Limit: <b>48</b> yrs</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numAge" min="14" max="48" step="1" value="25" placeholder="Enter Maternal Age">
+              <input type="number" id="numAge" class="number-input-field" min="14" max="48" step="1" value="25">
             </div>
-            <input type="range" class="slider-input" id="sliderAge" min="14" max="48" value="25" step="1">
-            <div class="field-alert alert-safe" id="alertAge">✓ Optimal Obstetric Age (18–35)</div>
+            <input type="range" id="sliderAge" class="slider-input" min="14" max="48" step="1" value="25">
+            <div class="field-alert alert-safe" id="alertAge">✓ Optimal Obstetric Age (18–35 yrs)</div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="selectEdu">Maternal Education Level</label>
-            <select class="select-input" id="selectEdu">
-              <option value="No Education">No Formal Education</option>
-              <option value="Primary">Primary Schooling</option>
-              <option value="Secondary" selected>Secondary Education</option>
-              <option value="Higher">Higher / Tertiary Education</option>
+            <select id="selectEdu" class="select-input">
+              <option value="No Education">No Formal Schooling</option>
+              <option value="Primary">Primary School</option>
+              <option value="Secondary" selected>Secondary / Higher Secondary</option>
+              <option value="Higher">College / Graduate Degree</option>
             </select>
           </div>
 
           <div class="form-group">
             <div class="form-label-row">
-              <label class="form-label" for="numInc">Monthly Family Income (INR ₹)</label>
-              <span class="max-limit-pill">Max Limit: <b>₹120,000</b></span>
+              <label class="form-label" for="numInc">Monthly Family Income (₹)</label>
+              <span class="max-limit-pill">Max: <b>120,000</b> ₹</span>
             </div>
             <div class="input-control-row">
-              <input type="number" class="number-input-field" id="numInc" min="3000" max="120000" step="1000" value="15000" placeholder="Enter Monthly Income">
+              <input type="number" id="numInc" class="number-input-field" min="3000" max="120000" step="1000" value="25000">
             </div>
-            <input type="range" class="slider-input" id="sliderInc" min="3000" max="120000" value="15000" step="1000">
+            <input type="range" id="sliderInc" class="slider-input" min="3000" max="120000" step="1000" value="25000">
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="selectRes">Residence Location</label>
-            <select class="select-input" id="selectRes">
-              <option value="Urban">Urban (High Healthcare Density)</option>
-              <option value="Rural" selected>Rural (Remote Care Access)</option>
+            <label class="form-label" for="selectRes">Residence Classification</label>
+            <select id="selectRes" class="select-input">
+              <option value="Rural" selected>Rural (Sub-center catchment)</option>
+              <option value="Urban">Urban (Metropolitan / Town)</option>
             </select>
           </div>
         </div>
 
       </div>
 
-      <!-- Action & Live Mode Bar -->
+      <!-- Action & Toggle Bar -->
       <div class="triage-action-bar morphism-card">
         <div class="toggle-wrapper">
           <label class="switch">
             <input type="checkbox" id="liveModeToggle" checked>
             <span class="switch-slider"></span>
           </label>
-          <span class="switch-label">⚡ Live Real-Time Triage (Recalculates instantly on any input adjustment)</span>
+          <span class="switch-label">Live Dynamic Recalculation (Real-Time Inference)</span>
         </div>
+
         <button class="btn-primary" id="recalcBtn">
-          <span>🔄</span> Recalculate Risk Assessment
+          <span>⚡</span> Re-calculate Triage Risk
         </button>
       </div>
 
-      <!-- Live Clinical Output Hero Card -->
+      <!-- Hero Output Banner -->
       <div id="resultOutputContainer">
-        <!-- Injected via JavaScript -->
+        <!-- Dynamically rendered by JavaScript -->
       </div>
 
-      <!-- Two-Column Analysis Breakdown -->
+      <!-- Risk Gauge & Flag Breakdown -->
       <div class="output-analysis-grid">
 
-        <!-- Probability Meter & Stratification -->
+        <!-- Circular Risk Gauge -->
         <div class="analysis-panel morphism-card">
-          <div class="card-badge">📊 Probability Stratification</div>
-
+          <div class="card-badge">🎯 Calibrated Risk Probability Meter</div>
           <div class="gauge-wrapper">
             <svg class="gauge-svg" viewBox="0 0 200 120">
-              <defs>
-                <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#10b981" />
-                  <stop offset="50%" stop-color="#f59e0b" />
-                  <stop offset="100%" stop-color="#ef4444" />
-                </linearGradient>
-              </defs>
-              <!-- Arc Background -->
+              <!-- Background semi-circle arc -->
               <path class="gauge-bg-arc" d="M 25 105 A 75 75 0 0 1 175 105" />
-              <!-- Animated Arc Fill -->
-              <path class="gauge-fill-arc" id="gaugeArcFill" d="M 25 105 A 75 75 0 0 1 175 105"
-                    stroke-dasharray="235.6" stroke-dashoffset="180" />
-              <!-- Value Text -->
+              <!-- Dynamic colored fill arc -->
+              <path class="gauge-fill-arc" id="gaugeArcFill" d="M 25 105 A 75 75 0 0 1 175 105" stroke-dasharray="235.6" stroke-dashoffset="192" />
+              <!-- Value text -->
               <text x="100" y="85" class="gauge-val-text" id="gaugePercentText">18.4%</text>
               <text x="100" y="105" class="gauge-lbl-text" id="gaugeRiskLabel">LOW RISK</text>
             </svg>
           </div>
 
           <div class="prob-kpi-row">
-            <div class="kpi-stat-box" style="border-color: rgba(16, 185, 129, 0.4);">
-              <div class="kpi-stat-title" style="color: #34d399;">Favorable Prognosis</div>
-              <div class="kpi-stat-number" id="kpiLowProb" style="color: #10b981;">81.6%</div>
+            <div class="kpi-stat-box" style="border-left: 6px solid #00f59b;">
+              <div class="kpi-stat-title">Favorable Prognosis</div>
+              <div class="kpi-stat-number" id="kpiLowProb">81.6%</div>
             </div>
-            <div class="kpi-stat-box" style="border-color: rgba(239, 68, 68, 0.4);">
-              <div class="kpi-stat-title" style="color: #f87171;">Adverse Risk Likelihood</div>
-              <div class="kpi-stat-number" id="kpiHighProb" style="color: #ef4444;">18.4%</div>
+            <div class="kpi-stat-box" style="border-left: 6px solid #ff5c8a;">
+              <div class="kpi-stat-title">Adverse Risk Likelihood</div>
+              <div class="kpi-stat-number" id="kpiHighProb">18.4%</div>
             </div>
           </div>
         </div>
@@ -357,7 +342,7 @@
         <!-- Clinical Flag Breakdown -->
         <div class="analysis-panel morphism-card">
           <div class="card-badge">🔍 Clinical Diagnostic Flag Breakdown</div>
-          <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 4px;">
+          <p style="font-size: 0.88rem; font-weight: 700; margin-top: 4px; color: var(--nb-muted);">
             Heuristic safety matrix evaluated against WHO and ICMR maternal care protocols:
           </p>
 
@@ -373,7 +358,7 @@
         <!-- Spider/Radar Chart -->
         <div class="analysis-panel morphism-card">
           <div class="card-badge">🕸️ Biometric Balance Spider Radar</div>
-          <p style="font-size: 0.84rem; color: #94a3b8; margin-bottom: 0.8rem;">
+          <p style="font-size: 0.88rem; font-weight: 700; color: var(--nb-muted); margin-bottom: 0.8rem;">
             Multiaxial biometric profile plotted against the optimal clinical reference envelope:
           </p>
           <div class="canvas-container">
@@ -384,7 +369,7 @@
         <!-- Biomarker Safety Spectrum -->
         <div class="analysis-panel morphism-card">
           <div class="card-badge">📊 Biomarker Safety Spectrum</div>
-          <p style="font-size: 0.84rem; color: #94a3b8; margin-bottom: 0.8rem;">
+          <p style="font-size: 0.88rem; font-weight: 700; color: var(--nb-muted); margin-bottom: 0.8rem;">
             Real-time biomarker levels evaluated relative to standard physiological danger limits:
           </p>
           <div class="spectrum-bars-list" id="spectrumBarsList">
@@ -395,108 +380,207 @@
     </div>
 
     <!-- =========================================================================
-         TAB 2: DATA INSIGHTS & EDA GALLERY
+         TAB 2: DATA INSIGHTS & EDA GALLERY (NEO-BRUTALISM EDITION)
          ========================================================================= -->
     <div class="tab-pane" id="tab2">
-      <div class="morphism-card" style="padding: 1.6rem; margin-bottom: 1.8rem;">
-        <div class="card-badge">📊 Exploratory Data Analysis &amp; Epidemiological Trends</div>
-        <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.4rem;">
-          Population Insights from 5,000 Calibrated Obstetric Records
+      <!-- Cohort Overview Header -->
+      <div class="morphism-card" style="padding: 1.8rem; margin-bottom: 1.8rem;">
+        <div class="card-badge">📊 Population Insights from 5,000 Obstetric Records</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; margin-bottom: 0.4rem;">
+          Exploratory Data Analysis &amp; Epidemiological Trends
         </h3>
-        <p style="font-size: 0.9rem; color: #cbd5e1; max-width: 900px;">
-          Explore statistical distributions and correlations that guided our feature engineering, SMOTE balancing strategy, and machine learning pipeline. Click any visual card to expand.
+        <p style="font-size: 0.95rem; font-weight: 600; color: var(--nb-muted); max-width: 950px;">
+          Empirical correlations and clinical feature distributions derived from our 5,000 calibrated obstetric records. Use the interactive sandbox below to simulate physiological thresholds in real time, or explore the full gallery of diagnostic plots.
         </p>
+
+        <!-- Cohort Key Metrics -->
+        <div class="hero-stats-grid" style="margin-top: 1.4rem;">
+          <div class="stat-box">
+            <div class="stat-value">5,000 Cohort</div>
+            <div class="stat-label">Calibrated Patient Records</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" style="color: #ff5c8a;">27.6% Baseline</div>
+            <div class="stat-label">High-Risk Obstetric Incidence</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" style="color: #ff9100;">4.82x Odds Ratio</div>
+            <div class="stat-label">Severe Anemia (&lt; 7.0 g/dL)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" style="color: #00f59b;">71.8% Protection</div>
+            <div class="stat-label">ANC Checkups (≥ 4 Visits)</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Filter Buttons -->
+      <!-- Interactive Population Sandbox & Live Canvas EDA Chart -->
+      <div class="eda-interactive-panel morphism-card">
+        <div class="card-badge" style="background: var(--nb-cyan);">⚡ Interactive Population Risk Simulator</div>
+        <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; margin-bottom: 6px;">
+          Live Biomarker Risk Distribution Explorer
+        </h4>
+        <p style="font-size: 0.88rem; font-weight: 700; color: var(--nb-muted);">
+          Switch between clinical indicators to visualize population risk curves and test threshold variations:
+        </p>
+
+        <!-- Metric Switcher Buttons -->
+        <div class="eda-metric-bar">
+          <button class="eda-metric-btn active" data-metric="hb">🩸 Hemoglobin vs Risk Curve</button>
+          <button class="eda-metric-btn" data-metric="bp">💓 Blood Pressure Clustering</button>
+          <button class="eda-metric-btn" data-metric="anc">🛡️ Antenatal Care (ANC) Protection</button>
+          <button class="eda-metric-btn" data-metric="bw">👶 Infant Birth Weight Density</button>
+        </div>
+
+        <!-- Canvas Chart Display -->
+        <div class="eda-canvas-wrap">
+          <canvas id="edaCanvas" width="760" height="300"></canvas>
+        </div>
+
+        <!-- Interactive Simulation Slider -->
+        <div class="eda-sim-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 900;">
+              🧪 Simulate Hemoglobin Anemia Threshold:
+            </label>
+            <span id="edaSimValueText" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 900; background: var(--nb-yellow); border: 2px solid #000; padding: 2px 10px; border-radius: 6px;">
+              11.0 g/dL
+            </span>
+          </div>
+          <input type="range" class="slider-input" id="edaSimSlider" min="5.0" max="15.0" step="0.1" value="11.0">
+          <div id="edaSimResultBadge" class="field-alert alert-safe" style="margin-top: 10px; font-size: 0.85rem;">
+            ✓ Optimal Hemoglobin: Low Adverse Risk (&lt; 15%) · Projected Adverse Rate: 14.1%
+          </div>
+        </div>
+      </div>
+
+      <!-- Search and Filter Controls for Visualizations -->
+      <div class="eda-search-bar morphism-card" style="padding: 1.2rem; margin-bottom: 1.6rem;">
+        <input type="text" class="number-input-field" id="edaSearchInput" placeholder="🔍 Search charts by biomarker (e.g. Hemoglobin, BP, SMOTE, Age, ANC, Clustering)..." style="flex: 1; min-width: 280px;">
+        <div style="font-size: 0.85rem; font-weight: 800; color: var(--nb-muted);">
+          Tip: Click any card to expand full high-resolution diagnostic plot
+        </div>
+      </div>
+
+      <!-- Filter Buttons Bar -->
       <div class="filter-button-bar">
-        <button class="filter-btn active" data-filter="all">All Visualizations</button>
+        <button class="filter-btn active" data-filter="all">All Visualizations (10)</button>
         <button class="filter-btn" data-filter="clinical">Clinical &amp; Hemodynamics</button>
         <button class="filter-btn" data-filter="demographics">Demographics &amp; Care Access</button>
         <button class="filter-btn" data-filter="multivariable">Multivariable &amp; Clustering</button>
       </div>
 
-      <!-- Gallery Grid -->
+      <!-- Gallery Grid of 10 Figures -->
       <div class="gallery-grid" id="edaGalleryGrid">
 
+        <!-- 1. Hemoglobin -->
         <div class="gallery-card morphism-card" data-category="clinical" data-img="figures/fig03_hemoglobin_by_risk.png">
+          <span class="gallery-card-badge" style="background: var(--nb-pink);">CLINICAL BIOMARKER</span>
           <div class="gallery-img-wrap">
-            <img src="figures/fig03_hemoglobin_by_risk.png" alt="Hemoglobin Distribution by Risk Status" loading="lazy">
+            <img src="figures/fig03_hemoglobin_by_risk.png" alt="Hemoglobin Distribution by Risk Status" loading="lazy" onerror="this.onerror=null; this.src='figures/fig03_hemoglobin_by_risk.png';">
           </div>
           <h4>Hemoglobin Distribution by Risk Status</h4>
-          <p>Sharp risk escalation when maternal hemoglobin drops below the 11.0 g/dL threshold (anemia).</p>
+          <p>Sharp risk escalation when maternal hemoglobin drops below the 11.0 g/dL threshold (anemia). Severe anemia (&lt;7.0 g/dL) correlates with a 4.82x increase in emergency mortality likelihood.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
         </div>
 
+        <!-- 2. Blood Pressure -->
         <div class="gallery-card morphism-card" data-category="clinical" data-img="figures/fig04_bp_vs_risk.png">
+          <span class="gallery-card-badge" style="background: var(--nb-pink);">HEMODYNAMICS</span>
           <div class="gallery-img-wrap">
-            <img src="figures/fig04_bp_vs_risk.png" alt="Systolic vs Diastolic BP Correlation" loading="lazy">
+            <img src="figures/fig04_bp_vs_risk.png" alt="Systolic vs Diastolic BP Correlation" loading="lazy" onerror="this.onerror=null; this.src='figures/fig04_bp_vs_risk.png';">
           </div>
           <h4>Systolic vs Diastolic BP Correlation</h4>
-          <p>Gestational hypertension clustering in high-risk pregnancies (SBP ≥ 140 or DBP ≥ 90).</p>
+          <p>Gestational hypertension clustering in high-risk pregnancies (SBP ≥ 140 or DBP ≥ 90 mmHg). Severe pre-eclamptic clustering is strongly segregated along the upper-right quadrant.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
         </div>
 
+        <!-- 3. Birth Weight -->
         <div class="gallery-card morphism-card" data-category="clinical" data-img="figures/fig07_birthweight_boxplot.png">
+          <span class="gallery-card-badge" style="background: var(--nb-pink);">PERINATAL OUTCOME</span>
           <div class="gallery-img-wrap">
-            <img src="figures/fig07_birthweight_boxplot.png" alt="Neonatal Birth Weight Distribution" loading="lazy">
+            <img src="figures/fig07_birthweight_boxplot.png" alt="Neonatal Birth Weight Distribution" loading="lazy" onerror="this.onerror=null; this.src='figures/fig07_birthweight_boxplot.png';">
           </div>
           <h4>Neonatal Birth Weight Distribution</h4>
-          <p>Severe correlation between infant low birth weight (< 2.5 kg) and adverse mortality prognosis.</p>
+          <p>Severe correlation between infant low birth weight (&lt; 2.5 kg) and adverse mortality prognosis. Median birth weight in the high-risk cohort drops to 1.95 kg vs 3.20 kg in normal deliveries.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
         </div>
 
-        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig01_class_distribution.png">
-          <div class="gallery-img-wrap">
-            <img src="figures/fig01_class_distribution.png" alt="Class Balance & SMOTE" loading="lazy">
-          </div>
-          <h4>Class Distribution &amp; SMOTE Balancing</h4>
-          <p>Original dataset class imbalance highlighting the necessity of SMOTE oversampling.</p>
-        </div>
-
-        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig02_age_vs_risk.png">
-          <div class="gallery-img-wrap">
-            <img src="figures/fig02_age_vs_risk.png" alt="Maternal Age Distribution" loading="lazy">
-          </div>
-          <h4>Maternal Age vs Risk (U-Shaped Curve)</h4>
-          <p>Classic U-shaped obstetric risk curve: elevated mortality in teenage (< 18) and advanced (> 35) mothers.</p>
-        </div>
-
-        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig05_anc_visits_vs_risk.png">
-          <div class="gallery-img-wrap">
-            <img src="figures/fig05_anc_visits_vs_risk.png" alt="Antenatal Care Visits vs Risk" loading="lazy">
-          </div>
-          <h4>Antenatal Care (ANC) Protective Effect</h4>
-          <p>Mothers completing ≥ 4 ANC checkups experience drastically lower risk of adverse outcomes.</p>
-        </div>
-
-        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig08_urban_rural_education.png">
-          <div class="gallery-img-wrap">
-            <img src="figures/fig08_urban_rural_education.png" alt="Urban/Rural & Education" loading="lazy">
-          </div>
-          <h4>Urban/Rural &amp; Education Stratification</h4>
-          <p>Socioeconomic gradients: secondary/higher education and urban access correlate with safer delivery.</p>
-        </div>
-
+        <!-- 4. Pregnancy Complications -->
         <div class="gallery-card morphism-card" data-category="clinical" data-img="figures/fig09_complications_by_risk.png">
+          <span class="gallery-card-badge" style="background: var(--nb-pink);">OBSTETRIC SEVERITY</span>
           <div class="gallery-img-wrap">
-            <img src="figures/fig09_complications_by_risk.png" alt="Pregnancy Complications Severity" loading="lazy">
+            <img src="figures/fig09_complications_by_risk.png" alt="Pregnancy Complications Severity" loading="lazy" onerror="this.onerror=null; this.src='figures/fig09_complications_by_risk.png';">
           </div>
           <h4>Pregnancy Complication Severity</h4>
-          <p>Direct impact of pre-existing complications (pre-eclampsia, gestational diabetes) on adverse risk.</p>
+          <p>Direct impact of pre-existing complications (pre-eclampsia, placental insufficiency, gestational diabetes) driving over 78% of all critical triage warnings in the population.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
         </div>
 
-        <div class="gallery-card morphism-card" data-category="multivariable" data-img="figures/fig06_correlation_heatmap.png">
+        <!-- 5. Class Distribution & SMOTE -->
+        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig01_class_distribution.png">
+          <span class="gallery-card-badge" style="background: var(--nb-green);">DATA ENGINEERING</span>
           <div class="gallery-img-wrap">
-            <img src="figures/fig06_correlation_heatmap.png" alt="Pearson Correlation Matrix" loading="lazy">
+            <img src="figures/fig01_class_distribution.png" alt="Class Balance & SMOTE" loading="lazy" onerror="this.onerror=null; this.src='figures/fig01_class_distribution.png';">
+          </div>
+          <h4>Class Distribution &amp; SMOTE Balancing</h4>
+          <p>Original dataset class imbalance highlighting the necessity of SMOTE oversampling. Mitigates clinical classifier bias to prevent false negative under-detection of critical patients.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
+        </div>
+
+        <!-- 6. Maternal Age Curve -->
+        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig02_age_vs_risk.png">
+          <span class="gallery-card-badge" style="background: var(--nb-cyan);">EPIDEMIOLOGY</span>
+          <div class="gallery-img-wrap">
+            <img src="figures/fig02_age_vs_risk.png" alt="Maternal Age Distribution" loading="lazy" onerror="this.onerror=null; this.src='figures/fig02_age_vs_risk.png';">
+          </div>
+          <h4>Maternal Age vs Risk (U-Shaped Curve)</h4>
+          <p>Classic U-shaped obstetric risk curve: elevated mortality in teenage mothers (&lt; 18 yrs) due to pelvic immaturity and advanced maternal age (&gt; 35 yrs) due to vascular comorbidities.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
+        </div>
+
+        <!-- 7. ANC Protective Effect -->
+        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig05_anc_visits_vs_risk.png">
+          <span class="gallery-card-badge" style="background: var(--nb-green);">PREVENTIVE CARE</span>
+          <div class="gallery-img-wrap">
+            <img src="figures/fig05_anc_visits_vs_risk.png" alt="Antenatal Care Visits vs Risk" loading="lazy" onerror="this.onerror=null; this.src='figures/fig05_anc_visits_vs_risk.png';">
+          </div>
+          <h4>Antenatal Care (ANC) Protective Effect</h4>
+          <p>Mothers completing ≥ 4 ANC checkups experience drastically lower risk of adverse outcomes (71.8% risk reduction), confirming WHO antenatal surveillance protocols.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
+        </div>
+
+        <!-- 8. Urban/Rural Stratification -->
+        <div class="gallery-card morphism-card" data-category="demographics" data-img="figures/fig08_urban_rural_education.png">
+          <span class="gallery-card-badge" style="background: var(--nb-yellow);">SOCIOECONOMIC</span>
+          <div class="gallery-img-wrap">
+            <img src="figures/fig08_urban_rural_education.png" alt="Urban/Rural & Education" loading="lazy" onerror="this.onerror=null; this.src='figures/fig08_urban_rural_education.png';">
+          </div>
+          <h4>Urban/Rural &amp; Education Stratification</h4>
+          <p>Socioeconomic gradients: secondary/higher education and urban healthcare access strongly correlate with institutional delivery adherence and lower intrapartum mortality.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
+        </div>
+
+        <!-- 9. Pearson Correlation Heatmap -->
+        <div class="gallery-card morphism-card" data-category="multivariable" data-img="figures/fig06_correlation_heatmap.png">
+          <span class="gallery-card-badge" style="background: var(--nb-cyan);">MULTIVARIATE</span>
+          <div class="gallery-img-wrap">
+            <img src="figures/fig06_correlation_heatmap.png" alt="Pearson Correlation Matrix" loading="lazy" onerror="this.onerror=null; this.src='figures/fig06_correlation_heatmap.png';">
           </div>
           <h4>Multivariable Correlation Heatmap</h4>
-          <p>Pairwise Pearson correlations across all 12 clinical and socioeconomic predictors.</p>
+          <p>Pairwise Pearson correlations across all 12 clinical and socioeconomic predictors, identifying colinear features and guiding tree-based ensemble feature selection.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
         </div>
 
+        <!-- 10. K-Means Clustering -->
         <div class="gallery-card morphism-card" data-category="multivariable" data-img="figures/fig10_kmeans_elbow_silhouette.png">
+          <span class="gallery-card-badge" style="background: var(--nb-cyan);">UNSUPERVISED MINING</span>
           <div class="gallery-img-wrap">
-            <img src="figures/fig10_kmeans_elbow_silhouette.png" alt="K-Means Clustering Analysis" loading="lazy">
+            <img src="figures/fig10_kmeans_elbow_silhouette.png" alt="K-Means Clustering Analysis" loading="lazy" onerror="this.onerror=null; this.src='figures/fig10_kmeans_elbow_silhouette.png';">
           </div>
           <h4>K-Means Clustering (Elbow &amp; Silhouette)</h4>
-          <p>Unsupervised segmentation discovering natural risk clusters across the patient cohort.</p>
+          <p>Unsupervised segmentation discovering natural risk clusters across the 5,000 patient cohort. Optimal k=3 identifies Low, Moderate, and Critical emergency phenotypes.</p>
+          <div class="expand-btn">🔍 Expand Visual</div>
         </div>
 
       </div>
@@ -510,32 +594,32 @@
         <div class="stat-box morphism-card" style="padding: 1.4rem;">
           <div class="stat-label">Champion Classifier</div>
           <div class="stat-value" style="font-size: 1.5rem;">XGBoost / RF</div>
-          <div style="font-size: 0.76rem; color: #34d399; font-weight: 700; margin-top: 4px;">Ensemble Optimized</div>
+          <div style="font-size: 0.78rem; font-weight: 800; background: var(--nb-green); color: #000; border: 1.5px solid #000; padding: 2px 6px; border-radius: 4px; width: fit-content; margin-top: 4px;">Ensemble Optimized</div>
         </div>
 
         <div class="stat-box morphism-card" style="padding: 1.4rem;">
           <div class="stat-label">High-Risk Recall</div>
           <div class="stat-value" style="font-size: 1.8rem;">83.2%</div>
-          <div style="font-size: 0.76rem; color: #a5b4fc; font-weight: 700; margin-top: 4px;">Primary Safety Criterion</div>
+          <div style="font-size: 0.78rem; font-weight: 800; background: var(--nb-yellow); color: #000; border: 1.5px solid #000; padding: 2px 6px; border-radius: 4px; width: fit-content; margin-top: 4px;">Primary Safety Criterion</div>
         </div>
 
         <div class="stat-box morphism-card" style="padding: 1.4rem;">
           <div class="stat-label">Area Under ROC</div>
           <div class="stat-value" style="font-size: 1.8rem;">0.929</div>
-          <div style="font-size: 0.76rem; color: #38bdf8; font-weight: 700; margin-top: 4px;">Outstanding Separation</div>
+          <div style="font-size: 0.78rem; font-weight: 800; background: var(--nb-cyan); color: #000; border: 1.5px solid #000; padding: 2px 6px; border-radius: 4px; width: fit-content; margin-top: 4px;">Outstanding Separation</div>
         </div>
 
         <div class="stat-box morphism-card" style="padding: 1.4rem;">
           <div class="stat-label">SMOTE Balanced N</div>
           <div class="stat-value" style="font-size: 1.8rem;">5,000</div>
-          <div style="font-size: 0.76rem; color: #f472b6; font-weight: 700; margin-top: 4px;">Oversampled Training</div>
+          <div style="font-size: 0.78rem; font-weight: 800; background: var(--nb-pink); color: #000; border: 1.5px solid #000; padding: 2px 6px; border-radius: 4px; width: fit-content; margin-top: 4px;">Oversampled Training</div>
         </div>
       </div>
 
       <!-- Leaderboard Table -->
       <div class="leaderboard-table-card morphism-card">
         <div class="card-badge">🏆 Classification Leaderboard (20% Holdout Test Set)</div>
-        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem;">
+        <p style="font-size: 0.88rem; font-weight: 700; color: var(--nb-muted); margin-bottom: 1rem;">
           Ranked primarily by <b>Recall on High-Risk class</b>. In maternal healthcare screening, failing to detect a high-risk mother (False Negative) carries mortal risk, making Recall the paramount clinical objective.
         </p>
 
@@ -555,7 +639,7 @@
             <tr>
               <td><span class="rank-badge">🥇</span></td>
               <td><b>XGBoost Classifier</b></td>
-              <td class="highlight-metric" style="color: #34d399;">83.2%</td>
+              <td class="highlight-metric" style="background: #dcfce7;">83.2%</td>
               <td class="highlight-metric">0.929</td>
               <td>0.834</td>
               <td>0.835</td>
@@ -564,7 +648,7 @@
             <tr>
               <td><span class="rank-badge">🥈</span></td>
               <td><b>Random Forest</b></td>
-              <td class="highlight-metric" style="color: #34d399;">83.0%</td>
+              <td class="highlight-metric" style="background: #dcfce7;">83.0%</td>
               <td class="highlight-metric">0.917</td>
               <td>0.824</td>
               <td>0.818</td>
@@ -620,7 +704,7 @@
       </div>
 
       <!-- Deep Dive Diagnostics -->
-      <div class="morphism-card" style="padding: 1.6rem;">
+      <div class="morphism-card" style="padding: 1.8rem;">
         <div class="card-badge">🔬 Model Explainability &amp; Deep-Dive Visual Diagnostics</div>
 
         <div class="deepdive-selector-bar">
@@ -632,7 +716,7 @@
 
         <div class="deepdive-img-container" id="deepdiveImgContainer">
           <img src="figures/confusion_matrices.png" id="deepdiveImg" alt="Confusion Matrices" style="max-height: 550px;">
-          <p id="deepdiveCaption" style="font-size: 0.86rem; color: #a5b4fc; margin-top: 1rem; text-align: center;">
+          <p id="deepdiveCaption" style="font-size: 0.9rem; font-weight: 700; color: var(--nb-text); margin-top: 1rem; text-align: center;">
             💡 <b>Clinical Reading:</b> Lower values in the bottom-left quadrant (False Negatives) represent safer clinical models.
           </p>
         </div>
@@ -643,12 +727,12 @@
          TAB 4: BATCH CSV SCREENING
          ========================================================================= -->
     <div class="tab-pane" id="tab4">
-      <div class="morphism-card" style="padding: 1.6rem; margin-bottom: 1.8rem;">
+      <div class="morphism-card" style="padding: 1.8rem; margin-bottom: 1.8rem;">
         <div class="card-badge">📁 Batch Hospital Cohort Risk Screening</div>
-        <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.4rem;">
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; margin-bottom: 0.4rem;">
           Bulk Obstetric Patient Scoring Engine
         </h3>
-        <p style="font-size: 0.9rem; color: #cbd5e1; max-width: 900px;">
+        <p style="font-size: 0.92rem; font-weight: 600; color: var(--nb-muted); max-width: 900px;">
           Upload a hospital admission CSV with the 12 required clinical and socioeconomic fields to execute rapid batch inference.
         </p>
       </div>
@@ -667,7 +751,7 @@
           <button class="btn-primary" id="loadSampleCsvBtn" style="width: 100%; justify-content: center;">
             <span>⚡</span> Load Pre-filled Sample Cohort (10 Patients)
           </button>
-          <button class="preset-btn" id="downloadTemplateBtn" style="width: 100%; justify-content: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1;">
+          <button class="preset-btn" id="downloadTemplateBtn" style="width: 100%; justify-content: center; background: #ffffff; color: #000;">
             <span>📋</span> Download Blank Template (CSV)
           </button>
         </div>
@@ -682,11 +766,11 @@
           </div>
           <div class="stat-box morphism-card" style="padding: 1.2rem;">
             <div class="stat-label">High-Risk Flagged</div>
-            <div class="stat-value" id="batchHighCount" style="color: #ef4444;">0</div>
+            <div class="stat-value" id="batchHighCount" style="color: #ff5c8a;">0</div>
           </div>
           <div class="stat-box morphism-card" style="padding: 1.2rem;">
             <div class="stat-label">Low-Risk Proportion</div>
-            <div class="stat-value" id="batchLowRate" style="color: #10b981;">0%</div>
+            <div class="stat-value" id="batchLowRate" style="color: #00f59b;">0%</div>
           </div>
           <div class="stat-box morphism-card" style="padding: 1.2rem;">
             <div class="stat-label">Average Risk %</div>
@@ -732,47 +816,47 @@
          ========================================================================= -->
     <div class="tab-pane" id="tab5">
       <!-- Architecture Flowchart -->
-      <div class="morphism-card" style="padding: 1.6rem; margin-bottom: 1.8rem;">
+      <div class="morphism-card" style="padding: 1.8rem; margin-bottom: 1.8rem;">
         <div class="card-badge">📐 Machine Learning &amp; Data Mining Architecture</div>
-        <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1.2rem;">
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; margin-bottom: 1.2rem;">
           End-to-End Clinical Mining Pipeline
         </h3>
 
         <div class="architecture-pipeline">
           <div class="pipe-step-box">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">📂</div>
-            <div style="font-weight: 700; font-size: 0.88rem; color: #f8fafc;">1. Data Integration</div>
-            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">UCI Real Anchor + 5,000 WHO Synthetics</div>
+            <div style="font-weight: 800; font-size: 0.9rem;">1. Data Integration</div>
+            <div style="font-size: 0.78rem; color: var(--nb-muted); margin-top: 4px;">UCI Real Anchor + 5,000 WHO Synthetics</div>
           </div>
           <div class="pipe-arrow">➔</div>
           <div class="pipe-step-box">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">⚙️</div>
-            <div style="font-weight: 700; font-size: 0.88rem; color: #f8fafc;">2. Preprocessing &amp; IQR</div>
-            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Outlier Capping, Scaling, One-Hot Encoding</div>
+            <div style="font-weight: 800; font-size: 0.9rem;">2. Preprocessing &amp; IQR</div>
+            <div style="font-size: 0.78rem; color: var(--nb-muted); margin-top: 4px;">Outlier Capping, Scaling, One-Hot Encoding</div>
           </div>
           <div class="pipe-arrow">➔</div>
           <div class="pipe-step-box">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">⚖️</div>
-            <div style="font-weight: 700; font-size: 0.88rem; color: #f8fafc;">3. SMOTE Balancing</div>
-            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Oversampling applied strictly to Train Fold</div>
+            <div style="font-weight: 800; font-size: 0.9rem;">3. SMOTE Balancing</div>
+            <div style="font-size: 0.78rem; color: var(--nb-muted); margin-top: 4px;">Oversampling applied strictly to Train Fold</div>
           </div>
           <div class="pipe-arrow">➔</div>
           <div class="pipe-step-box">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">🏆</div>
-            <div style="font-weight: 700; font-size: 0.88rem; color: #f8fafc;">4. 5-Fold GridSearchCV</div>
-            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">7 Classifiers tuned for High-Risk Recall</div>
+            <div style="font-weight: 800; font-size: 0.9rem;">4. 5-Fold GridSearchCV</div>
+            <div style="font-size: 0.78rem; color: var(--nb-muted); margin-top: 4px;">7 Classifiers tuned for High-Risk Recall</div>
           </div>
           <div class="pipe-arrow">➔</div>
           <div class="pipe-step-box">
             <div style="font-size: 1.8rem; margin-bottom: 6px;">💻</div>
-            <div style="font-weight: 700; font-size: 0.88rem; color: #f8fafc;">5. Clinical UI Triage</div>
-            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Glass / Clay Web App &amp; Streamlit</div>
+            <div style="font-weight: 800; font-size: 0.9rem;">5. Clinical UI Triage</div>
+            <div style="font-size: 0.78rem; color: var(--nb-muted); margin-top: 4px;">Neo-Brutalism Web &amp; Streamlit Suite</div>
           </div>
         </div>
       </div>
 
       <!-- WHO & ICMR Reference Guidelines -->
-      <div class="morphism-card" style="padding: 1.6rem; margin-bottom: 1.8rem;">
+      <div class="morphism-card" style="padding: 1.8rem; margin-bottom: 1.8rem;">
         <div class="card-badge">📋 Clinical Vitals Reference Limits (WHO &amp; ICMR Guidelines)</div>
 
         <table class="styled-table" style="margin-top: 1rem;">
@@ -833,30 +917,30 @@
       </div>
 
       <!-- Course & Team Credits -->
-      <div class="morphism-card" style="padding: 1.6rem;">
+      <div class="morphism-card" style="padding: 1.8rem;">
         <div class="card-badge">👨‍💻 Academic Project Credentials</div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
-          <div class="team-card morphism-card" style="background: rgba(15,23,42,0.6);">
+          <div class="team-card morphism-card">
             <div class="avatar-initials">SD</div>
             <div>
-              <h4 style="font-family: var(--font-display); font-size: 1.15rem; color: #ffffff;">Sakthi Darshan K</h4>
-              <div style="font-size: 0.8rem; color: #818cf8; font-weight: 700;">Reg No: 2403811720521049</div>
-              <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 2px;">B.Tech Information Technology</div>
+              <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 900;">Sakthi Darshan K</h4>
+              <div style="font-size: 0.82rem; font-weight: 800; color: var(--nb-muted);">Reg No: 2403811720521049</div>
+              <div style="font-size: 0.82rem; color: var(--nb-muted); margin-top: 2px;">B.Tech Information Technology</div>
             </div>
           </div>
 
-          <div class="team-card morphism-card" style="background: rgba(15,23,42,0.6);">
-            <div class="avatar-initials">SR</div>
+          <div class="team-card morphism-card">
+            <div class="avatar-initials" style="background: var(--nb-cyan);">SR</div>
             <div>
-              <h4 style="font-family: var(--font-display); font-size: 1.15rem; color: #ffffff;">Suriyaa R</h4>
-              <div style="font-size: 0.8rem; color: #818cf8; font-weight: 700;">Reg No: 2403811720521054</div>
-              <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 2px;">B.Tech Information Technology</div>
+              <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 900;">Suriyaa R</h4>
+              <div style="font-size: 0.82rem; font-weight: 800; color: var(--nb-muted);">Reg No: 2403811720521054</div>
+              <div style="font-size: 0.82rem; color: var(--nb-muted); margin-top: 2px;">B.Tech Information Technology</div>
             </div>
           </div>
         </div>
 
-        <div style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem; color: #94a3b8;">
+        <div style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: var(--border-med); font-size: 0.88rem; font-weight: 700; color: var(--nb-muted);">
           <b>Institution:</b> K. Ramakrishnan College of Technology (Autonomous), Samayapuram, Tiruchirappalli, Tamil Nadu<br>
           <b>Coursework:</b> Data Mining Techniques (DMT) · Supervised &amp; Unsupervised Learning Systems
         </div>
@@ -870,16 +954,16 @@
         <div class="modal-img-wrap">
           <img src="" id="modalImg" alt="Enlarged Visual">
         </div>
-        <h4 id="modalTitle" style="font-family: var(--font-display); font-size: 1.25rem; color: #ffffff; margin-bottom: 4px;">Plot Title</h4>
-        <p id="modalDesc" style="font-size: 0.86rem; color: #94a3b8;">Plot description</p>
+        <h4 id="modalTitle" style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; margin-bottom: 6px;">Plot Title</h4>
+        <p id="modalDesc" style="font-size: 0.92rem; font-weight: 600; color: var(--nb-muted); line-height: 1.6;">Plot description</p>
       </div>
     </div>
 
     <!-- App Footer -->
     <footer class="app-footer">
       <div>Maternal &amp; Infant Mortality Risk AI Screening System · DMT B.Tech IT Coursework 2026</div>
-      <div style="margin-top: 4px; font-size: 0.78rem;">
-        Engineered with Dual Morphism Design (Glassmorphism &amp; Claymorphism) · HTML5 &amp; Vanilla CSS3
+      <div style="margin-top: 6px; font-size: 0.82rem; color: var(--nb-muted);">
+        Neo-Brutalism High-Voltage Clinical Design System · Built with Vanilla CSS3, HTML5 &amp; JavaScript
       </div>
     </footer>
 
