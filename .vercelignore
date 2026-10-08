@@ -1,0 +1,10 @@
+app/
+data/
+models/
+notebooks/
+reports/
+scripts/
+src/
+Dockerfile
+requirements.txt
+serve.py
