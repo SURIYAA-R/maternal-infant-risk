@@ -466,6 +466,52 @@ div.stButton > button:not([kind="primary"]):hover {
     border-radius: 10px;
 }
 
+/* Claymorphic and Glassmorphic Number Inputs & Selects */
+div[data-baseweb="input"] {
+    background: #141b2a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 12px !important;
+    box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.6), inset -1px -1px 3px rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.25s ease !important;
+}
+
+div[data-baseweb="input"]:focus-within {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35), inset 2px 2px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+div[data-baseweb="input"] input {
+    color: #f8fafc !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+}
+
+/* Input Maximum Limit Badge */
+.max-limit-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-left: 6px;
+}
+
+/* Claymorphic Buttons */
+div.stButton > button {
+    box-shadow: 4px 6px 14px rgba(0, 0, 0, 0.45),
+                inset 1px 1px 3px rgba(255, 255, 255, 0.15),
+                inset -1px -1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+div.stButton > button:active {
+    transform: scale(0.97) !important;
+}
+
 /* Hide default streamlit branding */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
@@ -499,6 +545,136 @@ def load_metrics():
 
 
 # ---------------------------------------------------------------------------
+# Dynamic Real-Time Clinical Visualization Engines
+# ---------------------------------------------------------------------------
+def render_live_gauge_chart(high_risk_prob, low_risk_prob):
+    """Generate high-contrast dark-mode probability donut meter."""
+    fig, ax = plt.subplots(figsize=(4.8, 3.6), facecolor='#0f172a')
+    ax.set_facecolor('#0f172a')
+    
+    sizes = [low_risk_prob, high_risk_prob]
+    if high_risk_prob >= 50:
+        colors = ['#10b981', '#ef4444']
+        status_label = "HIGH RISK"
+        status_color = "#ef4444"
+    else:
+        colors = ['#10b981', '#38bdf8']
+        status_label = "LOW RISK"
+        status_color = "#10b981"
+        
+    ax.pie(
+        sizes, 
+        colors=colors, 
+        startangle=90, 
+        wedgeprops=dict(width=0.36, edgecolor='#0f172a', linewidth=3)
+    )
+    
+    ax.text(0, 0.12, f"{high_risk_prob:.1f}%", ha='center', va='center', 
+            fontsize=24, fontweight='bold', color='#f8fafc')
+    ax.text(0, -0.22, status_label, ha='center', va='center', 
+            fontsize=12, fontweight='bold', color=status_color)
+    ax.set_title("Live Adverse Risk Meter", color='#cbd5e1', fontsize=11, fontweight='bold', pad=10)
+    plt.tight_layout()
+    return fig
+
+
+def render_biomarker_status_chart(bp_sys, bp_dia, hb, gest_age, birth_wt, anc):
+    """Generate live clinical biomarker comparison relative to safety thresholds."""
+    metrics = [
+        ('Systolic BP (mmHg)', bp_sys, 120, 140, 'higher_worse'),
+        ('Diastolic BP (mmHg)', bp_dia, 80, 90, 'higher_worse'),
+        ('Hemoglobin (g/dL)', hb, 11.0, 7.0, 'lower_worse'),
+        ('Gestational Age (wks)', gest_age, 37.0, 32.0, 'lower_worse'),
+        ('Birth Weight (kg)', birth_wt, 2.50, 1.80, 'lower_worse'),
+        ('ANC Visits', anc, 4.0, 2.0, 'lower_worse')
+    ]
+    
+    fig, ax = plt.subplots(figsize=(7, 4.2), facecolor='#0f172a')
+    ax.set_facecolor('#1e293b')
+    y_pos = np.arange(len(metrics))
+    names = [m[0] for m in metrics]
+    current_vals = [m[1] for m in metrics]
+    
+    bar_colors = []
+    for m in metrics:
+        val, target, danger, direction = m[1], m[2], m[3], m[4]
+        if direction == 'higher_worse':
+            if val >= danger:
+                bar_colors.append('#ef4444')
+            elif val >= target:
+                bar_colors.append('#f59e0b')
+            else:
+                bar_colors.append('#10b981')
+        else:
+            if val < danger:
+                bar_colors.append('#ef4444')
+            elif val < target:
+                bar_colors.append('#f59e0b')
+            else:
+                bar_colors.append('#10b981')
+                
+    bars = ax.barh(y_pos, current_vals, color=bar_colors, edgecolor='#0f172a', height=0.6, alpha=0.9)
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(names, color='#e2e8f0', fontsize=10, fontweight='bold')
+    ax.tick_params(colors='#94a3b8')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_color('#334155')
+    ax.spines['bottom'].set_color('#334155')
+    ax.grid(axis='x', color='#334155', linestyle='--', alpha=0.5)
+    
+    for bar, val in zip(bars, current_vals):
+        ax.text(bar.get_width() + 0.02 * (max(current_vals) or 1), bar.get_y() + bar.get_height()/2, 
+                 f'{val}', ha='left', va='center', color='#f8fafc', fontweight='bold', fontsize=10)
+                 
+    ax.set_title('Live Patient Vitals (🟢 Safe | 🟡 Borderline | 🔴 High-Risk Zone)', 
+                 color='#f8fafc', fontsize=11, fontweight='bold', pad=12)
+    plt.tight_layout()
+    return fig
+
+
+def render_biomarker_radar_chart(bp_sys, bp_dia, hb, gest_age, birth_wt, anc):
+    """Generate live radar/spider chart comparing patient profile against clinical normal reference."""
+    categories = ['Systolic BP', 'Diastolic BP', 'Hemoglobin', 'Gestational Age', 'Birth Weight', 'ANC Visits']
+    N = len(categories)
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]
+    
+    score_bp_sys = max(0.1, min(1.0, 1.0 - max(0, bp_sys - 120) / 80.0))
+    score_bp_dia = max(0.1, min(1.0, 1.0 - max(0, bp_dia - 80) / 50.0))
+    score_hb = max(0.1, min(1.0, hb / 12.0))
+    score_ga = max(0.1, min(1.0, gest_age / 38.0))
+    score_bw = max(0.1, min(1.0, birth_wt / 3.0))
+    score_anc = max(0.1, min(1.0, anc / 5.0))
+    
+    patient_scores = [score_bp_sys, score_bp_dia, score_hb, score_ga, score_bw, score_anc]
+    patient_scores += patient_scores[:1]
+    
+    ideal_scores = [1.0] * N
+    ideal_scores += ideal_scores[:1]
+    
+    fig, ax = plt.subplots(figsize=(5.5, 4.5), subplot_kw=dict(polar=True), facecolor='#0f172a')
+    ax.set_facecolor('#1e293b')
+    
+    ax.plot(angles, ideal_scores, color='#10b981', linewidth=1.5, linestyle='--', label='Safe Baseline')
+    ax.fill(angles, ideal_scores, color='#10b981', alpha=0.08)
+    
+    ax.plot(angles, patient_scores, color='#6366f1', linewidth=2.5, linestyle='solid', label='Current Patient')
+    ax.fill(angles, patient_scores, color='#6366f1', alpha=0.35)
+    
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(categories, color='#cbd5e1', size=9, weight='bold')
+    ax.set_yticklabels([])
+    ax.tick_params(colors='#94a3b8')
+    ax.spines['polar'].set_color('#334155')
+    ax.grid(color='#334155', linestyle='--')
+    ax.legend(loc='upper right', bbox_to_anchor=(1.35, 1.15), facecolor='#1e293b', edgecolor='#334155', labelcolor='#e2e8f0', fontsize=8)
+    ax.set_title('Biometric Balance Spider Radar', color='#f8fafc', fontsize=11, fontweight='bold', pad=20)
+    plt.tight_layout()
+    return fig
+
+
+# ---------------------------------------------------------------------------
 # Preset Management (Single-Click Patient Profiles)
 # ---------------------------------------------------------------------------
 if 'bp_sys' not in st.session_state:
@@ -517,48 +693,33 @@ if 'bp_sys' not in st.session_state:
     st.session_state.res = "Rural"
 
 def set_patient_preset(preset_key):
-    if preset_key == 'low':
-        st.session_state.bp_sys = 114
-        st.session_state.bp_dia = 74
-        st.session_state.hb = 12.8
-        st.session_state.diab = "No"
-        st.session_state.comp = "None"
-        st.session_state.bw = 3.25
-        st.session_state.ga = 39
-        st.session_state.age = 24
-        st.session_state.anc = 6
-        st.session_state.deliv = "Hospital"
-        st.session_state.edu = "Higher"
-        st.session_state.inc = 32000
-        st.session_state.res = "Urban"
-    elif preset_key == 'borderline':
-        st.session_state.bp_sys = 136
-        st.session_state.bp_dia = 88
-        st.session_state.hb = 10.1
-        st.session_state.diab = "No"
-        st.session_state.comp = "Mild"
-        st.session_state.bw = 2.45
-        st.session_state.ga = 36
-        st.session_state.age = 34
-        st.session_state.anc = 3
-        st.session_state.deliv = "Clinic"
-        st.session_state.edu = "Secondary"
-        st.session_state.inc = 14000
-        st.session_state.res = "Rural"
-    elif preset_key == 'critical':
-        st.session_state.bp_sys = 162
-        st.session_state.bp_dia = 102
-        st.session_state.hb = 6.6
-        st.session_state.diab = "Yes"
-        st.session_state.comp = "Severe"
-        st.session_state.bw = 1.70
-        st.session_state.ga = 31
-        st.session_state.age = 17
-        st.session_state.anc = 1
-        st.session_state.deliv = "Home"
-        st.session_state.edu = "No Education"
-        st.session_state.inc = 5000
-        st.session_state.res = "Rural"
+    preset_data = {
+        'low': {
+            'bp_sys': 114, 'bp_dia': 74, 'hb': 12.8, 'diab': "No",
+            'comp': "None", 'bw': 3.25, 'ga': 39, 'age': 24, 'anc': 6,
+            'deliv': "Hospital", 'edu': "Higher", 'inc': 32000, 'res': "Urban"
+        },
+        'borderline': {
+            'bp_sys': 136, 'bp_dia': 88, 'hb': 10.1, 'diab': "No",
+            'comp': "Mild", 'bw': 2.45, 'ga': 36, 'age': 34, 'anc': 3,
+            'deliv': "Clinic", 'edu': "Secondary", 'inc': 14000, 'res': "Rural"
+        },
+        'critical': {
+            'bp_sys': 162, 'bp_dia': 102, 'hb': 6.6, 'diab': "Yes",
+            'comp': "Severe", 'bw': 1.70, 'ga': 31, 'age': 17, 'anc': 1,
+            'deliv': "Home", 'edu': "No Education", 'inc': 5000, 'res': "Rural"
+        }
+    }
+    if preset_key in preset_data:
+        for k, v in preset_data[preset_key].items():
+            st.session_state[k] = v
+            # Sync widget keys if already instantiated
+            if f"slider_{k}" in st.session_state:
+                st.session_state[f"slider_{k}"] = v
+            if f"num_{k}" in st.session_state:
+                st.session_state[f"num_{k}"] = v
+            if f"select_{k}" in st.session_state:
+                st.session_state[f"select_{k}"] = v
 
 
 # ---------------------------------------------------------------------------
@@ -700,6 +861,14 @@ with tab1:
     st.markdown("### 🩺 Single Patient Clinical Risk Assessment")
     st.caption("Provide patient hemodynamic vitals, gestational metrics, and socioeconomic indicators below to run real-time inference.")
 
+    input_format = st.radio(
+        "Select Value Entry Format:",
+        ["🔢 Direct Number Input (Enforced Maximum Limits)", "🎚️ Range Sliders"],
+        horizontal=True,
+        help="Choose between directly typing numeric values with strict maximum limits or dragging sliders."
+    )
+    is_num_entry = (input_format == "🔢 Direct Number Input (Enforced Maximum Limits)")
+
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -707,10 +876,22 @@ with tab1:
         <div class="card-header-badge">🔬 Hemodynamics & Laboratory</div>
         """, unsafe_allow_html=True)
         
-        bp_sys = st.slider("Systolic Blood Pressure (mmHg)", 80, 200, st.session_state.bp_sys, key="slider_bp_sys")
-        bp_dia = st.slider("Diastolic Blood Pressure (mmHg)", 50, 130, st.session_state.bp_dia, key="slider_bp_dia")
-        hb = st.slider("Hemoglobin Level (g/dL)", 5.0, 17.0, float(st.session_state.hb), 0.1, key="slider_hb")
+        if is_num_entry:
+            bp_sys = st.number_input("Systolic BP (mmHg)", min_value=80, max_value=200, value=int(st.session_state.bp_sys), step=1, key="num_bp_sys", help="Maximum allowable limit: 200 mmHg")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: 200 mmHg</span>', unsafe_allow_html=True)
+            bp_dia = st.number_input("Diastolic BP (mmHg)", min_value=50, max_value=130, value=int(st.session_state.bp_dia), step=1, key="num_bp_dia", help="Maximum allowable limit: 130 mmHg")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: 130 mmHg</span>', unsafe_allow_html=True)
+            hb = st.number_input("Hemoglobin Level (g/dL)", min_value=5.0, max_value=17.0, value=float(st.session_state.hb), step=0.1, key="num_hb", help="Maximum allowable limit: 17.0 g/dL")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: 17.0 g/dL</span>', unsafe_allow_html=True)
+        else:
+            bp_sys = st.slider("Systolic Blood Pressure (mmHg)", 80, 200, int(st.session_state.bp_sys), key="slider_bp_sys", help="Max: 200 mmHg")
+            bp_dia = st.slider("Diastolic Blood Pressure (mmHg)", 50, 130, int(st.session_state.bp_dia), key="slider_bp_dia", help="Max: 130 mmHg")
+            hb = st.slider("Hemoglobin Level (g/dL)", 5.0, 17.0, float(st.session_state.hb), 0.1, key="slider_hb", help="Max: 17.0 g/dL")
         
+        st.session_state.bp_sys = bp_sys
+        st.session_state.bp_dia = bp_dia
+        st.session_state.hb = hb
+
         # Dynamic Clinical Tag for Hb
         if hb < 7.0:
             st.markdown('<span style="color: #ef4444; font-size: 0.75rem; font-weight: 700;">🚨 Severe Anemia Alert (< 7.0 g/dL)</span>', unsafe_allow_html=True)
@@ -739,13 +920,23 @@ with tab1:
         <div class="card-header-badge">👶 Gestational & Neonatal</div>
         """, unsafe_allow_html=True)
         
-        gest_age = st.slider("Gestational Age (weeks)", 24, 43, int(st.session_state.ga), key="slider_ga")
+        if is_num_entry:
+            gest_age = st.number_input("Gestational Age (weeks)", min_value=24, max_value=43, value=int(st.session_state.ga), step=1, key="num_ga", help="Maximum allowable limit: 43 weeks")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: 43 weeks</span>', unsafe_allow_html=True)
+            birth_wt = st.number_input("Infant Birth Weight (kg)", min_value=0.80, max_value=5.00, value=float(st.session_state.bw), step=0.05, key="num_bw", help="Maximum allowable limit: 5.00 kg")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: 5.00 kg</span>', unsafe_allow_html=True)
+        else:
+            gest_age = st.slider("Gestational Age (weeks)", 24, 43, int(st.session_state.ga), key="slider_ga", help="Max: 43 weeks")
+            birth_wt = st.slider("Infant Birth Weight (kg)", 0.80, 5.00, float(st.session_state.bw), 0.05, key="slider_bw", help="Max: 5.00 kg")
+        
+        st.session_state.ga = gest_age
+        st.session_state.bw = birth_wt
+
         if gest_age < 37:
             st.markdown('<span style="color: #ef4444; font-size: 0.75rem; font-weight: 700;">🚨 Preterm Gestation (< 37 weeks)</span>', unsafe_allow_html=True)
         else:
             st.markdown('<span style="color: #10b981; font-size: 0.75rem; font-weight: 700;">✅ Full Term Gestation</span>', unsafe_allow_html=True)
 
-        birth_wt = st.slider("Infant Birth Weight (kg)", 0.80, 5.00, float(st.session_state.bw), 0.05, key="slider_bw")
         if birth_wt < 2.50:
             st.markdown('<span style="color: #ef4444; font-size: 0.75rem; font-weight: 700;">🚨 Low Birth Weight (LBW < 2.5 kg)</span>', unsafe_allow_html=True)
         else:
@@ -754,7 +945,7 @@ with tab1:
         delivery_opts = ["Hospital", "Clinic", "Home"]
         delivery = st.selectbox(
             "Place of Delivery", 
-            delivery_opts,
+            delivery_opts, 
             index=delivery_opts.index(st.session_state.deliv) if st.session_state.deliv in delivery_opts else 0,
             key="select_deliv"
         )
@@ -764,13 +955,23 @@ with tab1:
         <div class="card-header-badge">👩 Demographics & Care Access</div>
         """, unsafe_allow_html=True)
         
-        age = st.slider("Maternal Age (years)", 14, 48, int(st.session_state.age), key="slider_age")
+        if is_num_entry:
+            age = st.number_input("Maternal Age (years)", min_value=14, max_value=48, value=int(st.session_state.age), step=1, key="num_age", help="Maximum allowable limit: 48 years")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: 48 years</span>', unsafe_allow_html=True)
+            anc = st.number_input("Antenatal Care (ANC) Visits", min_value=0, max_value=15, value=int(st.session_state.anc), step=1, key="num_anc", help="Maximum allowable limit: 15 visits")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: 15 visits</span>', unsafe_allow_html=True)
+        else:
+            age = st.slider("Maternal Age (years)", 14, 48, int(st.session_state.age), key="slider_age", help="Max: 48 years")
+            anc = st.slider("Antenatal Care (ANC) Visits", 0, 15, int(st.session_state.anc), key="slider_anc", help="Max: 15 visits")
+
+        st.session_state.age = age
+        st.session_state.anc = anc
+
         if age < 18 or age > 35:
             st.markdown('<span style="color: #f59e0b; font-size: 0.75rem; font-weight: 700;">⚠️ High-Risk Maternal Age Group</span>', unsafe_allow_html=True)
         else:
             st.markdown('<span style="color: #10b981; font-size: 0.75rem; font-weight: 700;">✅ Optimal Maternal Age</span>', unsafe_allow_html=True)
 
-        anc = st.slider("Antenatal Care (ANC) Visits", 0, 15, int(st.session_state.anc), key="slider_anc")
         if anc < 4:
             st.markdown('<span style="color: #f59e0b; font-size: 0.75rem; font-weight: 700;">⚠️ Below WHO Guideline (Min 4 Visits)</span>', unsafe_allow_html=True)
         else:
@@ -784,8 +985,14 @@ with tab1:
             key="select_edu"
         )
         
-        income = st.slider("Monthly Family Income (INR ₹)", 3000, 120000, int(st.session_state.inc), step=1000, key="slider_inc")
+        if is_num_entry:
+            income = st.number_input("Monthly Family Income (INR ₹)", min_value=3000, max_value=120000, value=int(st.session_state.inc), step=1000, key="num_inc", help="Maximum allowable limit: ₹120,000")
+            st.markdown('<span class="max-limit-tag">Maximum Limit: ₹120,000</span>', unsafe_allow_html=True)
+        else:
+            income = st.slider("Monthly Family Income (INR ₹)", 3000, 120000, int(st.session_state.inc), step=1000, key="slider_inc", help="Max: ₹120,000")
         
+        st.session_state.inc = income
+
         res_opts = ["Urban", "Rural"]
         residence = st.selectbox(
             "Residence Location",
@@ -795,9 +1002,13 @@ with tab1:
         )
 
     st.markdown("<br>", unsafe_allow_html=True)
-    predict_clicked = st.button("⚡ Run Clinical Risk Diagnostic", type="primary", use_container_width=True)
+    ctrl_col1, ctrl_col2 = st.columns([3, 1])
+    with ctrl_col1:
+        live_mode = st.toggle("⚡ Real-Time Live Triage (Auto-recalculates & redraws graphs on every value change)", value=True)
+    with ctrl_col2:
+        manual_btn = st.button("🔄 Recalculate Now", type="primary", use_container_width=True)
 
-    if predict_clicked:
+    if live_mode or manual_btn:
         model, preprocessor = load_model()
 
         input_data = pd.DataFrame([{
@@ -883,13 +1094,18 @@ with tab1:
             st.markdown(f"**Risk Severity Gradient Meter:** `{high_risk_prob:.1f}%`")
             st.progress(float(proba[1]))
             st.markdown("""
-                <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94a3b8;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94a3b8; margin-bottom: 0.8rem;">
                     <span>0% (Minimal Risk)</span>
                     <span>Threshold: 50%</span>
                     <span>100% (Extreme Risk)</span>
                 </div>
-            </div>
             """, unsafe_allow_html=True)
+
+            fig_gauge = render_live_gauge_chart(high_risk_prob, low_risk_prob)
+            st.pyplot(fig_gauge, use_container_width=True)
+            plt.close(fig_gauge)
+
+            st.markdown("</div>", unsafe_allow_html=True)
 
         with res_col2:
             st.markdown("""
@@ -940,6 +1156,32 @@ with tab1:
 
             st.markdown("</div>", unsafe_allow_html=True)
 
+        # Real-time Patient Telemetry & Safety Thresholds
+        st.markdown("""
+        <div class="glass-panel" style="margin-top: 1.2rem;">
+            <div class="card-header-badge">📊 Live Patient Telemetry & Safety Thresholds</div>
+            <div style="font-size: 0.88rem; color: #cbd5e1; margin-bottom: 0.8rem;">
+                Dynamic visual comparison of patient vitals against WHO/ICMR clinical limits. 
+                Regenerated instantly upon any parameter change.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        chart_tab_a, chart_tab_b = st.tabs([
+            "📊 Biomarker Safety Spectrum", 
+            "🕸️ Clinical Spider Radar Polygon"
+        ])
+
+        with chart_tab_a:
+            fig_status = render_biomarker_status_chart(bp_sys, bp_dia, hb, gest_age, birth_wt, anc)
+            st.pyplot(fig_status, use_container_width=True)
+            plt.close(fig_status)
+
+        with chart_tab_b:
+            fig_radar = render_biomarker_radar_chart(bp_sys, bp_dia, hb, gest_age, birth_wt, anc)
+            st.pyplot(fig_radar, use_container_width=True)
+            plt.close(fig_radar)
+
         # Feature Importance Insights
         importance_path = os.path.join(FIGURES_DIR, 'feature_importance_rf.png')
         if os.path.exists(importance_path):
@@ -952,6 +1194,8 @@ with tab1:
             </div>
             """, unsafe_allow_html=True)
             st.image(importance_path, caption="Random Forest Feature Importance Analysis", use_container_width=True)
+    else:
+        st.info("👆 Adjust patient values above and click **Recalculate Now** (or toggle on **Real-Time Live Triage** for automatic live updates).")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
